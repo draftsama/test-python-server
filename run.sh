@@ -1,3 +1,4 @@
 #!/bin/bash
 
-nohup python app.py > server.log 2>&1 & echo $! > server.pid 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+nohup python $DIR/app.py > $DIR/server.log 2>&1 & echo $! > $DIR/server.pid 

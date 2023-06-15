@@ -1,10 +1,13 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+
 # Read the PID from server.pid file
-pid=$(cat server.pid)
+pid=$(cat $DIR/server.pid)
 
 # Kill the process using the PID
-kill $pid
+kill -9 $pid
 
 # Optional: Wait for the process to terminate
 sleep 1
