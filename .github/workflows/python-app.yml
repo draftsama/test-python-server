@@ -33,4 +33,4 @@ jobs:
       run: |
         # Replace the following command with your deployment steps
         source myenv/bin/activate
-        python app.py
+        ./run.sh
