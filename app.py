@@ -37,7 +37,7 @@ def create_book():
     return jsonify(new_book), 201
 
 # Run the app
-MODE='production'
+MODE='development'
 PORT=3000
 
 print("Starting app in {} mode on port {}".format(MODE, PORT))
