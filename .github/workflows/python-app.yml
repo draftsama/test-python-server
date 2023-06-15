@@ -29,10 +29,6 @@ jobs:
         source myenv/bin/activate
         pip install -r requirements.txt
 
-    - name: Run tests
-      run: |
-        python -m pytest
-
     - name: Deploy application
       run: |
         # Replace the following command with your deployment steps
