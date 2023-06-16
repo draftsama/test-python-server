@@ -45,7 +45,7 @@ def create_book():
 PORT=5000
 
 cer = '/home/ubuntu/ca-certificates.crt'
-key = '/home/ubuntu/ssl-cert-snakeoil.key'
+key = '/home/ubuntu/ssl-cert-snakeoil.pem'
 
 #check file exists
 if not os.path.isfile(cer) or not os.path.isfile(key):
