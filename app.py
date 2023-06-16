@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_sslify import SSLify
 
 app = Flask(__name__)
+sslify = SSLify(app)
+
 app.config['JSON_AS_ASCII'] = False
 
 # Sample data
@@ -41,5 +44,5 @@ def create_book():
 PORT=5000
 
 if __name__ == '__main__':
-    app.run(ssl_context=('/home/ubuntu/ca-certificates.crt', '/home/ubuntu/ssl-cert-snakeoil.key'),host='0.0.0.0', port=PORT, debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=True)
     
