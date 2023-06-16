@@ -1,17 +1,11 @@
 import os
 from flask import Flask, jsonify, request
-from flask_sslify import SSLify
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-sslify = SSLify(app, permanent=True)
 
-from OpenSSL import SSL
 
-context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
-context.use_privatekey_file('server.key')
-context.use_certificate_file('server.crt')
 
 # Sample data
 books = [
