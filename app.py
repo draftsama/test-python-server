@@ -1,6 +1,4 @@
 from flask import Flask, jsonify, request
-from waitress import serve
-
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -41,7 +39,6 @@ def create_book():
 
 # Run the app
 PORT=5000
-
 
 if __name__ == '__main__':
     app.run(ssl_context=('/home/ubuntu/ca-certificates.crt', '/home/ubuntu/ssl-cert-snakeoil.key'),host='0.0.0.0', port=PORT, debug=True)
