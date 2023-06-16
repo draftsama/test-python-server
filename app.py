@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 from flask_sslify import SSLify
 
@@ -43,6 +44,16 @@ def create_book():
 # Run the app
 PORT=5000
 
+cer = '/home/ubuntu/ca-certificates.crt'
+key = '/home/ubuntu/ssl-cert-snakeoil.key'
+
+#check file exists
+if not os.path.isfile(cer) or not os.path.isfile(key):
+    print("SSL certificate and/or key file not found")
+    exit()
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=PORT, debug=True)
+    app.run(ssl_context=(cer, key),host='0.0.0.0', port=PORT, debug=True)
+
+
     
