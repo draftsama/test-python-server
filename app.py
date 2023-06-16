@@ -11,6 +11,8 @@ books = [
     {"id": 2, "title": "Book 2", "author": "Author 2"}
 ]
 
+
+
 # GET /books - Get all books
 @app.route('/books', methods=['GET'])
 def get_books():
