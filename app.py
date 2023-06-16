@@ -3,9 +3,15 @@ from flask import Flask, jsonify, request
 from flask_sslify import SSLify
 
 app = Flask(__name__)
-sslify = SSLify(app)
-
 app.config['JSON_AS_ASCII'] = False
+
+sslify = SSLify(app, permanent=True)
+
+from OpenSSL import SSL
+
+context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+context.use_privatekey_file('server.key')
+context.use_certificate_file('server.crt')
 
 # Sample data
 books = [
@@ -53,7 +59,8 @@ if not os.path.isfile(cer) or not os.path.isfile(key):
     exit()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    context = (cer, key)#certificate and key files
+    app.run('0.0.0.0', debug=True, port=5000, ssl_context=context)
 
 
     
