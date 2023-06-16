@@ -53,7 +53,7 @@ if not os.path.isfile(cer) or not os.path.isfile(key):
     exit()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=PORT, debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
 
     
