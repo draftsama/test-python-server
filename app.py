@@ -40,13 +40,9 @@ def create_book():
     return jsonify(new_book), 201
 
 # Run the app
-MODE='production'
-PORT=3000
+PORT=5000
 
-print("Starting app in {} mode on port {}".format(MODE, PORT))
 
 if __name__ == '__main__':
-    if MODE == "development":
-        app.run(host='0.0.0.0', port=PORT, debug=True)
-    else:
-        serve(app, host='0.0.0.0', port=PORT, threads=2)
+    app.run(ssl_context=('/home/ubuntu/ca-certificates.crt', '/home/ubuntu/ssl-cert-snakeoil.key'),host='0.0.0.0', port=PORT, debug=True)
+    
