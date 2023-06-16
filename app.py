@@ -60,7 +60,7 @@ if not os.path.isfile(cer) or not os.path.isfile(key):
 
 if __name__ == '__main__':
     context = (cer, key)#certificate and key files
-    app.run('0.0.0.0', debug=True, port=5000, ssl_context=context)
+    app.run( debug=True, ssl_context='adhoc')
 
 
     
