@@ -1,18 +1,14 @@
-import os
 from flask import Flask, jsonify, request
+
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
-
-
-
 
 # Sample data
 books = [
     {"id": 1, "title": "Book 1", "author": "Author 1"},
     {"id": 2, "title": "Book 2", "author": "Author 2"}
 ]
-
 
 
 # GET /books - Get all books
@@ -44,17 +40,10 @@ def create_book():
 # Run the app
 PORT=5000
 
-cer = '/home/ubuntu/ca-certificates.crt'
-key = '/home/ubuntu/ssl-cert-snakeoil.key'
-
-#check file exists
-if not os.path.isfile(cer) or not os.path.isfile(key):
-    print("SSL certificate and/or key file not found")
-    exit()
-
 if __name__ == '__main__':
-    context = (cer, key)#certificate and key files
-    app.run( debug=True, ssl_context='adhoc')
-
+    #run as https
+    app.run(ssl_context='adhoc', host='0.0.0.0', port=PORT)
+    #run as http
+    # app.run(host='0.0.0.0', port=PORT, debug=True)
 
     
